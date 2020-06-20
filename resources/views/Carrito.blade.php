@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Tus Compras')
+@section('title', 'Mis Compras')
 @section('content')
 
 <div class="container">
@@ -15,7 +15,7 @@
                     @endif             
                
                 <?php $valor=0 ?>
-
+                
                 @if(session('carrito'))
                     <table class="table table-bordered">
                         <thead >
@@ -41,7 +41,7 @@
                             </tr>
                         </thead>
 
-                        @foreach (session('carrito') as $id => $detalle)
+                    @foreach (session('carrito') as $id => $detalle)
 
                         <?php $valor += $detalle['Precio'] * $detalle['Cantidad'] ?>
 
@@ -61,9 +61,8 @@
                             <th>
                                 <img src= {{ $detalle['Imagen'] }} width="70" height="70"/>
                             </th>
-                           
                             <th>
-                                <a href=" "
+                                <a href="  "
                                  class= "btn btn-danger">
                                  Eliminar</a>
                             </th>
@@ -74,20 +73,51 @@
                             <h3>
                                 Total $ {{ $valor }}
                             </h3>
-                        
                         </td>
                     </tr>
+                   
                     </table>
+                @else
+                    <div class="alert alert success">
+                        "No hay productos"
+                    </div>
                 @endif
-
-               
-                <div>
-                <a href=" {{ url('/productos') }}" class="btn btn-danger" >Seguir Comprando </a>
-                </div>
                 
+                <div>
+                    <a href=" {{ url('/productos') }}" class="btn btn-danger" >
+                        Seguir Comprando
+                    </a>
+                </div>
+                <div>
+                    <br>
+                    <a href="{{ url('verSession') }}" class= "btn btn-secondary">
+                        Ver Session             
+                    </a>
+                </div>
+                <br>
+                <tr colspane> 
+                        <form method="post" action="{{ url('nuevaVenta') }}">
+                            @csrf
+                            <div class= "alert alert-success">
+                                <div class= "form-group">
+                                    <label >
+                                        Correo contacto: 
+                                    </label>
+                                    <input type="text" name="email" 
+                                        id="email"
+                                        class= "form-control"
+                                        type= "email"
+                                        required
+                                    >
+                                </div>
+                                <button class= "btn btn-primary" type= "submit">
+                                    Pagar
+                                </button>
+                            </div>
+                        </form>
+                 </tr>
             </div>
         </div>
-        
     </div>
 </div>
 @endsection

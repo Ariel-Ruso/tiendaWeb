@@ -5,7 +5,6 @@
 <br/>
 <br>
     <div class="alert alert-success">
-        
         <a href="{{ route('verCarrito') }}" class="badge badge-success"> Ver carrito </a>
     </div>
 

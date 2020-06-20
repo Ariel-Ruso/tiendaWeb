@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Carrito;
@@ -8,15 +7,6 @@ use App\Producto;
 
 class CarritoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
     public function agregar($id)
     {
         $producto= Producto::Findorfail($id);
@@ -52,7 +42,8 @@ class CarritoController extends Controller
         ];
         
     session()->put ('carrito', $carrito);
-    return redirect()->back()->with('mensaje', 'Producto agregado al carrito');
+    return redirect()->back()->with('mensaje', 'Producto agregado al carrito ');
+
 
     }
     
@@ -61,26 +52,18 @@ class CarritoController extends Controller
         $producto= Producto::Findorfail($id);
         $carrito= session()->get('carrito');
 
-        //si carrito ya tiene ese item booro uno
+        //si carrito ya tiene ese item borro uno
         if(isset($carrito[$id])) {
             $carrito[$id]['Cantidad']--;
+            if($carrito[$id]['Cantidad']== 0){
+                unset($carrito[$id]);
+            }
             session()->put('carrito', $carrito);
             return redirect()->back()->with('mensaje', ' Producto eliminado del carrito');
-}
-
-        
-    }
-
-    
-
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
+        }
+        else{
+            return redirect()->back()->with('mensaje', ' no hay Productos');
+        }
     }
 
     public function verCarrito()
@@ -88,14 +71,12 @@ class CarritoController extends Controller
         return view ('carrito');
     }
 
-    public function edit(Carrito $carrito)
+    public function verSession()
     {
-        //
+        $carrito= session()->get('carrito');
+        
+        return view ('verSession', compact ('carrito'));
     }
 
-    public function update(Request $request, Carrito $carrito)
-    {
-        //
-    }
 
 }

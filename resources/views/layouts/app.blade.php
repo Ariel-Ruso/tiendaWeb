@@ -28,7 +28,7 @@
       
       <li class="nav-item">
         <a class="nav-link" href="#">Carrito (
-          <?  int (count(session('carrito')) ) //anu no cuenta items
+          <?  count(session('carrito') ) //anu no cuenta items
           ?>
           )
 			</a>

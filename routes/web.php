@@ -21,4 +21,10 @@ Route::get('agregar/{id}', 'CarritoController@agregar')->name('agregar');
 
 Route::get('eliminar/{id}', 'CarritoController@eliminar')->name('eliminar');
 
+Route::get('verSession', 'CarritoController@verSession')->name('verSession');
+
+Route::post('nuevaVenta/{detalle()}', 'VentaController@nuevaVenta')->name('nuevaVenta');
+
+
+
 
