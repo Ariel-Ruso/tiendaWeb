@@ -73,7 +73,8 @@ class CarritoController extends Controller
 
     public function verSession()
     {
-        $carrito= session()->get('carrito');
+        
+        dd( \Session::get('carrito'));
         
         return view ('verSession', compact ('carrito'));
     }

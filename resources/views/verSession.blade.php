@@ -3,12 +3,11 @@
 
 <div class="alert alert-success">
           @if (session('mensaje'))
-                  
                   {{ mensaje }}   
           @endif
 </div>
 <?php $valor=0 ?>
-@if(session('carrito'))
+
                     <table class="table table-bordered">
                         <thead >
                             <tr>
@@ -32,13 +31,13 @@
                                 </th>
                             </tr>
                         </thead>
-@foreach (session('carrito') as $id => $detalle)
+@foreach ($carrito as $detalle)
 
         <?php $valor += $detalle['Precio'] * $detalle['Cantidad'] ?>
 
         <tr>
         <th  class="font-weight-normal" >
-                {{ $detalle['Nombre'] }}
+                {{ $detalle->'Nombre' }}
         </th>
         <th  class="font-weight-normal" >
                 $ {{ $detalle['Precio'] }}
@@ -55,5 +54,5 @@
       
         </tr>
 @endforeach
-@endif
+
 @endsection
