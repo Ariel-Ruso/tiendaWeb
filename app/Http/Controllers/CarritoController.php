@@ -43,8 +43,6 @@ class CarritoController extends Controller
         
     session()->put ('carrito', $carrito);
     return redirect()->back()->with('mensaje', 'Producto agregado al carrito ');
-
-
     }
     
     public function eliminar($id)
@@ -70,7 +68,7 @@ class CarritoController extends Controller
     {
         return view ('carrito');
     }
-
+//funcion d prueba para trabajar final carrito, operar e insertar datos en base
     public function verSession()
     {
         

@@ -6,14 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateVentasTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('ventas', function (Blueprint $table) {            
+        Schema::create('ventas', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
             $table->increments('id');
             $table->text('ClaveTrans');
             $table->text('PaypalDatos');
@@ -25,11 +22,6 @@ class CreateVentasTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('ventas');

@@ -6,12 +6,11 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Bienvenido</div>
-
+                <!-- web principal del user, puede cerrar sesion o ir a la tienda -->
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                            
+                            {{ session('status') }} 
                         </div>
                     @endif
                     <h4> 
@@ -22,7 +21,6 @@
                     <a href= "{{ route ('productos') }}" class="btn btn-primary" >
                         Ir a tienda 
                     </a>
-                    
                     
                 </div>
             </div>

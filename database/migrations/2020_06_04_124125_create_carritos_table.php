@@ -6,11 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateCarritosTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+   
     public function up()
     {
         Schema::create('carritos', function (Blueprint $table) {
@@ -19,11 +15,7 @@ class CreateCarritosTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    
     public function down()
     {
         Schema::dropIfExists('carritos');

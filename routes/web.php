@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-//inicio proyecto 25-5, finalizacion 8-6
+//inicio proyecto 25-5
 
 Route::get('/', function () {
     return view('welcome');

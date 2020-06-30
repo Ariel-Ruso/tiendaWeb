@@ -7,7 +7,6 @@
     <div class="alert alert-success">
         <a href="{{ route('verCarrito') }}" class="badge badge-success"> Ver carrito </a>
     </div>
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -41,7 +40,6 @@
                 </div>
             </div>
         </div>
-        
     </div>
 </div>
 @endsection
