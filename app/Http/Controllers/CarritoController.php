@@ -71,9 +71,7 @@ class CarritoController extends Controller
 //funcion d prueba para trabajar final carrito, operar e insertar datos en base
     public function verSession()
     {
-        
         dd( \Session::get('carrito'));
-        
         return view ('verSession', compact ('carrito'));
     }
 

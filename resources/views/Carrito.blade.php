@@ -42,7 +42,7 @@
                         </thead>
 
                     @foreach (session('carrito') as $id => $detalle)
-
+                    <!-- recorro carrito  -->
                         <?php $valor += $detalle['Precio'] * $detalle['Cantidad'] ?>
 
                         <tr>
